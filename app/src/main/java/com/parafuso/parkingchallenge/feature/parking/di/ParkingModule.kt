@@ -18,5 +18,5 @@ fun loadParkingModule(): Module = module {
     }
 
     factory { ParkingRepositoryImpl(dataSource = get()) }
-    factory { DoParkingUseCaseImpl(repository = get()) } }
+    factory { DoParkingUseCaseImpl(repository = get()) }
 }
