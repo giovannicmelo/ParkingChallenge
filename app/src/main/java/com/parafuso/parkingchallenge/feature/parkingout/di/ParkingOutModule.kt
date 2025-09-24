@@ -4,6 +4,7 @@ import com.parafuso.parkingchallenge.core.data.remote.HttpClient
 import com.parafuso.parkingchallenge.feature.parkingout.data.api.ParkingOutService
 import com.parafuso.parkingchallenge.feature.parkingout.data.datasource.ParkingOutRemoteDataSourceImpl
 import com.parafuso.parkingchallenge.feature.parkingout.data.repository.ParkingOutRepositoryImpl
+import com.parafuso.parkingchallenge.feature.parkingout.domain.usecase.DoParkingOutUseCaseImpl
 import org.koin.core.module.Module
 import org.koin.dsl.module
 
@@ -15,4 +16,5 @@ fun loadParkingOutModule(): Module = module {
     }
 
     factory { ParkingOutRepositoryImpl(dataSource = get()) }
+    factory { DoParkingOutUseCaseImpl(repository = get()) }
 }

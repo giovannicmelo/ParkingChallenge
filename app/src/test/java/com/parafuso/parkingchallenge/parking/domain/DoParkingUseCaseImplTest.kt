@@ -47,7 +47,7 @@ class DoParkingUseCaseImplTest {
         every { repository.doParking(params.plate) } returns flow { throw exception }
 
         // When
-        val result = doParkingUseCase.invoke(DoParkingUseCase.Params(""))
+        val result = doParkingUseCase.invoke(params)
 
         // Then
         result.test {
