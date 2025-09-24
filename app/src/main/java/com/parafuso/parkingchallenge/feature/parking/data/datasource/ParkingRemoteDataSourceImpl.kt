@@ -1,7 +1,7 @@
 package com.parafuso.parkingchallenge.feature.parking.data.datasource
 
 import com.parafuso.parkingchallenge.core.data.mapper.Mapper
-import com.parafuso.parkingchallenge.core.data.util.parseHttpError
+import com.parafuso.parkingchallenge.core.data.extension.parseHttpError
 import com.parafuso.parkingchallenge.feature.parking.data.api.ParkingService
 import com.parafuso.parkingchallenge.feature.parking.data.model.ParkingRequest
 import com.parafuso.parkingchallenge.feature.parking.data.model.ParkingResponse

@@ -1,4 +1,4 @@
-package com.parafuso.parkingchallenge.core.data.util
+package com.parafuso.parkingchallenge.core.data.extension
 
 import com.google.gson.Gson
 import com.parafuso.parkingchallenge.core.data.model.ApiException
