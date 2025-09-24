@@ -1,54 +1,50 @@
-package com.parafuso.parkingchallenge.parking.data
+package com.parafuso.parkingchallenge.parkingout.data
 
 import app.cash.turbine.test
 import com.parafuso.parkingchallenge.MockWebServerRule
 import com.parafuso.parkingchallenge.core.data.model.ApiException
 import com.parafuso.parkingchallenge.core.data.remote.createRetrofit
-import com.parafuso.parkingchallenge.feature.parking.data.api.ParkingService
-import com.parafuso.parkingchallenge.feature.parking.data.datasource.ParkingRemoteDataSourceImpl
-import com.parafuso.parkingchallenge.feature.parking.data.mapper.ParkingMapper
-import com.parafuso.parkingchallenge.feature.parking.data.repository.ParkingRepositoryImpl
-import com.parafuso.parkingchallenge.feature.parking.domain.model.Parking
-import com.parafuso.parkingchallenge.feature.parking.domain.repository.ParkingRepository
-import junit.framework.TestCase.assertEquals
+import com.parafuso.parkingchallenge.feature.parkingout.data.api.ParkingOutService
+import com.parafuso.parkingchallenge.feature.parkingout.data.datasource.ParkingOutRemoteDataSourceImpl
+import com.parafuso.parkingchallenge.feature.parkingout.data.repository.ParkingOutRepositoryImpl
+import com.parafuso.parkingchallenge.feature.parkingout.domain.repository.ParkingOutRepository
 import kotlinx.coroutines.runBlocking
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
+import org.junit.Assert.assertEquals
 import org.junit.Rule
 import org.junit.Test
 import retrofit2.Retrofit
 import kotlin.time.ExperimentalTime
 
 @ExperimentalTime
-class ParkingRepositoryImplIntegrationTest {
+class ParkingOutRepositoryImplIntegrationTest {
 
     @get:Rule
     private val mockWebServerRule = MockWebServerRule()
     private val retrofit = createRetrofit(mockWebServerRule.getBaseUrl())
-    private val repository: ParkingRepository = createRepository(retrofit)
+    private val repository: ParkingOutRepository = createRepository(retrofit)
     private val mockWebServer: MockWebServer = mockWebServerRule.server
 
     @Test
-    fun `doParking should return a parking when request is successful`() = runBlocking {
+    fun `doParkingOut should return nothing when request is successful`() = runBlocking {
         // Given
-        val jsonBody = "{\"reservation\": \"68d36c\",\"plate\": \"GCM-9998\",\"entered_at\":\"2025-09-24T03:56:59.967+00:00\"}"
-        val expectedParking = Parking("2025-09-24T03:56:59.967+00:00", "GCM-9998", "68d36c")
-        val mockResponse = MockResponse().setResponseCode(200).setBody(jsonBody)
+        val mockResponse = MockResponse().setResponseCode(204)
         mockWebServer.enqueue(mockResponse)
 
         // When
-        val result = repository.doParking("GCM-9998")
+        val result = repository.doParkingOut("GCM-9998")
 
         // Then
         result.test {
-            assertEquals(expectedParking, expectItem())
+            assertEquals(Unit, expectItem())
             assertEquals(1, mockWebServer.requestCount)
             expectComplete()
         }
     }
 
     @Test
-    fun `doParking should throw an api error when request fails`() = runBlocking {
+    fun `doParkingOut should throw an api error when request fails`() = runBlocking {
         // Given
         val expectedError = ApiException(422, "Client Error")
         val jsonBody = "{\"errors\": {\"plate\": [\"Client Error\"]}}"
@@ -56,7 +52,7 @@ class ParkingRepositoryImplIntegrationTest {
         mockWebServer.enqueue(mockResponse)
 
         // When
-        val result = repository.doParking("")
+        val result = repository.doParkingOut("")
 
         // Then
         result.test {
@@ -67,13 +63,13 @@ class ParkingRepositoryImplIntegrationTest {
     }
 
     @Test
-    fun `doParking should throw a generic error when request fails`() = runBlocking {
+    fun `doParkingOut should throw a generic error when request fails`() = runBlocking {
         // Given
         val mockResponse = MockResponse().setResponseCode(500).setBody("Server Error")
         mockWebServer.enqueue(mockResponse)
 
         // When
-        val result = repository.doParking("")
+        val result = repository.doParkingOut("")
 
         // Then
         result.test {
@@ -83,10 +79,9 @@ class ParkingRepositoryImplIntegrationTest {
         }
     }
 
-    private fun createRepository(retrofit: Retrofit): ParkingRepository {
-        val api = retrofit.create(ParkingService::class.java)
-        val mapper = ParkingMapper()
-        val dataSource = ParkingRemoteDataSourceImpl(api, mapper)
-        return ParkingRepositoryImpl(dataSource)
+    private fun createRepository(retrofit: Retrofit): ParkingOutRepository {
+        val api = retrofit.create(ParkingOutService::class.java)
+        val dataSource = ParkingOutRemoteDataSourceImpl(api)
+        return ParkingOutRepositoryImpl(dataSource)
     }
 }
