@@ -2,6 +2,7 @@ package com.parafuso.parkingchallenge
 
 import android.app.Application
 import com.parafuso.parkingchallenge.core.di.loadCoreModule
+import com.parafuso.parkingchallenge.feature.parking.di.loadParkingModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -29,7 +30,8 @@ class ParkingChallengeApplication : Application() {
         }
     }
 
-    private fun getKoinModules() = mutableListOf<Module>().apply {
-        addAll(loadCoreModule())
-    }
+    private fun getKoinModules() = listOf(
+        loadCoreModule(),
+        loadParkingModule(),
+    )
 }

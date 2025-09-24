@@ -9,20 +9,18 @@ import org.koin.core.module.Module
 import org.koin.dsl.module
 import retrofit2.converter.gson.GsonConverterFactory
 
-fun loadCoreModule(): List<Module> = listOf(
-    module {
-        single {
-            HttpClient(
-                retrofit = RetrofitFactory(
-                    baseUrl = BuildConfig.BASE_URL,
-                    okHttpClient = OkHttpClientFactory(
-                        interceptors = listOf(
-                            LoggingInterceptorFactory.create()
-                        )
-                    ).create(),
-                    converterFactory = GsonConverterFactory.create()
-                ).create()
-            )
-        }
+fun loadCoreModule(): Module = module {
+    single {
+        HttpClient(
+            retrofit = RetrofitFactory(
+                baseUrl = BuildConfig.BASE_URL,
+                okHttpClient = OkHttpClientFactory(
+                    interceptors = listOf(
+                        LoggingInterceptorFactory.create()
+                    )
+                ).create(),
+                converterFactory = GsonConverterFactory.create()
+            ).create()
+        )
     }
-)
+}
