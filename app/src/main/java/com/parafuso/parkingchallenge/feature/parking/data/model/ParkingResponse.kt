@@ -4,9 +4,9 @@ import com.google.gson.annotations.SerializedName
 
 data class ParkingResponse(
     @SerializedName("entered_at")
-    val enteredAt: String?,
+    val enteredAt: String? = null,
     @SerializedName("plate")
-    val plate: String?,
+    val plate: String? = null,
     @SerializedName("reservation")
-    val reservation: String?
+    val reservation: String? = null
 )

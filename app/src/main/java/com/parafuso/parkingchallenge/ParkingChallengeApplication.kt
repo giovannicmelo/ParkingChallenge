@@ -3,6 +3,7 @@ package com.parafuso.parkingchallenge
 import android.app.Application
 import com.parafuso.parkingchallenge.core.di.loadCoreModule
 import com.parafuso.parkingchallenge.feature.parking.di.loadParkingModule
+import com.parafuso.parkingchallenge.feature.parkinghistory.di.loadParkingHistoryModule
 import com.parafuso.parkingchallenge.feature.parkingout.di.loadParkingOutModule
 import com.parafuso.parkingchallenge.feature.parkingpay.di.loadParkingPayModule
 import org.koin.android.ext.koin.androidContext
@@ -36,5 +37,6 @@ class ParkingChallengeApplication : Application() {
         loadParkingModule(),
         loadParkingOutModule(),
         loadParkingPayModule(),
+        loadParkingHistoryModule(),
     )
 }
