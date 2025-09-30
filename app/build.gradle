@@ -36,6 +36,9 @@ android {
     kotlinOptions {
         jvmTarget = '11'
     }
+    buildFeatures {
+        viewBinding true
+    }
     android.buildFeatures.buildConfig = true
 }
 
@@ -44,6 +47,8 @@ dependencies {
     implementation libs.androidx.core.ktx
     implementation libs.androidx.appcompat
     implementation libs.material
+    implementation libs.androidx.viewbinding
+    implementation libs.androidx.viewpager2
 
     //Timber
     implementation libs.timber

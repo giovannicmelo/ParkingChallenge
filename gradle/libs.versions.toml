@@ -17,6 +17,8 @@ okHttp = "4.12.0"
 gson = "2.10"
 koin = "2.0.1"
 timber = "5.0.1"
+viewbinding = "8.13.0"
+viewPager2 = "1.0.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -43,6 +45,8 @@ koin-core = { group = "io.insert-koin", name = "koin-core", version.ref = "koin"
 koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = "koin" }
 koin-android-viewmodel = { group = "io.insert-koin", name = "koin-android-viewmodel", version.ref = "koin" }
 timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber" }
+androidx-viewbinding = { group = "androidx.databinding", name = "viewbinding", version.ref = "viewbinding" }
+androidx-viewpager2 = { group = "androidx.viewpager2", name = "viewpager2", version.ref = "viewPager2" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
