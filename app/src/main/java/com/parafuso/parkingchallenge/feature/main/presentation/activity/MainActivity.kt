@@ -1,8 +1,9 @@
-package com.parafuso.parkingchallenge
+package com.parafuso.parkingchallenge.feature.main.presentation.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.tabs.TabLayoutMediator
+import com.parafuso.parkingchallenge.R
 import com.parafuso.parkingchallenge.core.presentation.viewBinding
 import com.parafuso.parkingchallenge.databinding.ActivityMainBinding
 import com.parafuso.parkingchallenge.feature.main.presentation.adapter.MainPageAdapter

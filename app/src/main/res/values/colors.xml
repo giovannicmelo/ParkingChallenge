@@ -11,4 +11,10 @@
     <color name="grey">#757575</color>
     <color name="white_gray">#F2F2F2</color>
     <color name="light_gray">#9B9B9B</color>
+    <color name="lighter_gray">#DADADA</color>
+    <color name="lighter_gray_2">#CCCCCC</color>
+    <color name="green">#28DD91</color>
+    <color name="light_yellow">#FFFBE6</color>
+    <color name="wine">#A769B2</color>
+    <color name="error">#FF0068</color>
 </resources>

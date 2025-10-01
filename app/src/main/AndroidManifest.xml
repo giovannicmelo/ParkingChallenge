@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ParkingChallenge">
 
-        <activity android:name=".MainActivity"
+        <activity android:name=".feature.main.presentation.activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingHorizontal="20dp"
+    android:paddingVertical="46dp">
+
+    <TextView
+        android:id="@+id/plate_input_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:textColor="@color/light_gray"
+        android:textSize="16sp"
+        android:text="@string/plate_number"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/TextInputLayoutStyle"
+        android:id="@+id/plate_input_layout"
+        android:layout_width="match_parent"
+        app:placeholderText="AAA-0000"
+        app:placeholderTextColor="@color/lighter_gray_2"
+        app:placeholderTextAppearance="@style/PlaceholderStyle">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/plate_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            android:maxLength="8"
+            android:inputType="textCapCharacters|textNoSuggestions" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        style="@style/ButtonStyle.Parking"
+        android:id="@+id/confirm_button"
+        android:layout_width="match_parent"
+        android:layout_marginTop="14dp"
+        android:text="@string/confirm_parking" />
+</LinearLayout>

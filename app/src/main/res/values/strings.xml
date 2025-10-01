@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">ParkingChallenge</string>
+    <string name="plate_number">Número da placa:</string>
+    <string name="confirm_parking">Confirmar entrada</string>
+    <string name="payment">Pagamento</string>
+    <string name="parking_out">Saída</string>
+    <string name="show_history">Ver histórico</string>
 </resources>
