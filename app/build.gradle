@@ -13,7 +13,7 @@ android {
 
     defaultConfig {
         applicationId "com.parafuso.parkingchallenge"
-        minSdk 23
+        minSdk 24
         targetSdk 36
         versionCode 1
         versionName "1.0"
@@ -73,6 +73,9 @@ dependencies {
     implementation libs.koin.core
     implementation libs.koin.android
     implementation libs.koin.android.viewmodel
+
+    // Lottie
+    implementation libs.lottie
 
     testImplementation libs.junit
     testImplementation libs.coroutines.test

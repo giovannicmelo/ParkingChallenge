@@ -1,4 +1,4 @@
-package com.parafuso.parkingchallenge.feature.parking.presentation.fragment
+package com.parafuso.parkingchallenge.feature.parkingout.presentation.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater

@@ -4,7 +4,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.parafuso.parkingchallenge.feature.parking.presentation.fragment.ParkingFragment
-import com.parafuso.parkingchallenge.feature.parking.presentation.fragment.ParkingOutFragment
+import com.parafuso.parkingchallenge.feature.parkingout.presentation.fragment.ParkingOutFragment
 
 class MainPageAdapter(fragmentActivity: FragmentActivity) : FragmentStateAdapter(fragmentActivity) {
 

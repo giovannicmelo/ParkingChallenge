@@ -1,46 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:paddingHorizontal="20dp"
-    android:paddingVertical="46dp">
+    android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/plate_input_label"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/parking_container"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:textColor="@color/light_gray"
-        android:textSize="16sp"
-        android:text="@string/plate_number"/>
+        android:orientation="vertical"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="46dp">
 
-    <com.google.android.material.textfield.TextInputLayout
-        style="@style/TextInputLayoutStyle"
-        android:id="@+id/plate_input_layout"
-        android:layout_width="match_parent"
-        app:placeholderText="AAA-0000"
-        app:placeholderTextColor="@color/lighter_gray_2"
-        app:placeholderTextAppearance="@style/PlaceholderStyle">
+        <TextView
+            android:id="@+id/plate_input_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:textColor="@color/light_gray"
+            android:textSize="16sp"
+            android:text="@string/plate_number"/>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/plate_input"
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/TextInputLayoutStyle"
+            android:id="@+id/plate_input_layout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:textAllCaps="true"
-            android:textAlignment="center"
-            android:textSize="24sp"
-            android:maxLength="8"
-            android:inputType="textCapCharacters|textNoSuggestions" />
+            app:errorIconDrawable="@null"
+            app:errorEnabled="false"
+            app:placeholderText="AAA-0000"
+            app:placeholderTextColor="@color/lighter_gray_2"
+            app:placeholderTextAppearance="@style/PlaceholderStyle">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/plate_input"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textAllCaps="true"
+                android:textAlignment="center"
+                android:textSize="24sp"
+                android:maxLength="8"
+                android:inputType="textCapCharacters|textNoSuggestions" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
-        style="@style/ButtonStyle.Parking"
-        android:id="@+id/confirm_button"
+        <LinearLayout
+            android:id="@+id/error_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:padding="8dp"
+            android:visibility="gone"
+            android:background="@drawable/background_error"
+            tools:visibility="visible">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                app:srcCompat="@drawable/ic_exclamation_mark" />
+
+            <TextView
+                android:id="@+id/error_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/error"
+                tools:text="Xiii... Ocorreu um problema aqui... =/"/>
+        </LinearLayout>
+
+        <Button
+            style="@style/ButtonStyle.Parking"
+            android:id="@+id/confirm_button"
+            android:layout_width="match_parent"
+            android:layout_marginTop="14dp"
+            android:text="@string/confirm_parking" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/loader_container"
         android:layout_width="match_parent"
-        android:layout_marginTop="14dp"
-        android:text="@string/confirm_parking" />
-</LinearLayout>
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:visibility="gone">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_gravity="center"
+            app:lottie_autoPlay="true"
+            app:lottie_rawRes="@raw/loader"
+            app:lottie_loop="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/registering"
+            android:textSize="16sp"
+            android:layout_marginTop="12dp"
+            android:layout_gravity="center"
+            android:textColor="@color/gray_black"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/success_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:visibility="gone">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/ic_round_done" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/registered"
+            android:textSize="16sp"
+            android:textAllCaps="true"
+            android:layout_marginTop="12dp"
+            android:layout_gravity="center"
+            android:textColor="@color/gray_black"/>
+    </LinearLayout>
+</FrameLayout>

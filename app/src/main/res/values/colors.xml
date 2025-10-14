@@ -17,4 +17,6 @@
     <color name="light_yellow">#FFFBE6</color>
     <color name="wine">#A769B2</color>
     <color name="error">#FF0068</color>
+    <color name="gray_black">#4A4A4A</color>
+    <color name="pink">#FFDDE3</color>
 </resources>
