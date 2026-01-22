@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import com.parafuso.parkingchallenge.R
 import com.parafuso.parkingchallenge.core.presentation.viewBinding
 import com.parafuso.parkingchallenge.databinding.FragmentParkingOutBinding
+import com.parafuso.parkingchallenge.feature.parkinghistory.presentation.activity.ParkingHistoryActivity
 
 class ParkingOutFragment : Fragment() {
 
@@ -20,16 +21,31 @@ class ParkingOutFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpViews()
+        configureListeners()
     }
 
     override fun onResume() {
         super.onResume()
-        binding.root.requestLayout()
-        binding.plateInput.requestFocus()
+        with(binding) {
+            root.requestLayout()
+            plateInput.requestFocus()
+        }
     }
 
     private fun setUpViews() {
         // TODO : Will be implemented
+    }
+
+    private fun configureListeners() {
+        with(binding) {
+            historyButton.setOnClickListener {
+                val args = ParkingHistoryActivity.Args(
+                    plate = plateInput.text.toString()
+                )
+                val intent = ParkingHistoryActivity.createIntent(requireContext(), args)
+                startActivity(intent)
+            }
+        }
     }
 
     companion object {

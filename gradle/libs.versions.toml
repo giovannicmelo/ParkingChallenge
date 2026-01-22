@@ -53,4 +53,6 @@ lottie = { group = "com.airbnb.android", name = "lottie", version.ref = "lottie"
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-parcelize = { id = "kotlin-parcelize" }
+
 

@@ -56,8 +56,10 @@ class ParkingFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        binding.root.requestLayout()
-        binding.plateInput.requestFocus()
+        with(binding) {
+            root.requestLayout()
+            plateInput.requestFocus()
+        }
     }
 
     private fun setUpViews() {

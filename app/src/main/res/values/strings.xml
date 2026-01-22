@@ -7,4 +7,8 @@
     <string name="show_history">Ver histórico</string>
     <string name="registering">Registrando…</string>
     <string name="registered">Registrado!</string>
+    <string name="plate">Placa %s</string>
+    <string name="payment_label">Pagamento</string>
+    <string name="time_label">Tempo Total</string>
+    <string name="loading">Carregando…</string>
 </resources>
